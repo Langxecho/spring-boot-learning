@@ -16,6 +16,12 @@
     <description>spring-boot-learning</description>
     <modules>
         <module>spring-boot-quickstart</module>
+        <module>spring-boot-thymeleaf</module>
+        <module>spring-boot-logging</module>
+        <module>my-zhihu-api</module>
+        <module>spring-boot-configure</module>
+        <module>spring-boot-data</module>
+        <module>spring-boot-mp</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -41,6 +47,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务管理</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        li {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        span {
+            font-size: 18px;
+        }
+
+        /* 完成任务样式 */
+        .completed {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+
+        /* 按钮样式 */
+        li form {
+            margin: 0;
+        }
+
+        li button {
+            background-color: #007bff;
+            margin-left: 10px;
+        }
+
+        li button:hover {
+            background-color: #0056b3;
+        }
+
+        li button.delete {
+            background-color: #dc3545;
+        }
+
+        li button.delete:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+<form action="/addTask" method="post">
+    <input type="text" name="name" placeholder="请输入任务名称">
+    <button type="submit">添加任务</button>
+</form>
+
+<ul>
+    <li th:each="task : ${tasks}">
+        <span th:text="${task.name}" th:classappend="${task.completed} ? 'completed' : ''"></span>
+        <div>
+            <form action="/updateTask" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${task.id}">
+                <button type="submit">切换状态</button>
+            </form>
+            <form action="/deleteTask" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${task.id}">
+                <button type="submit" class="delete">删除</button>
+            </form>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

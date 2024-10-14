@@ -1,0 +1,14 @@
+logging:
+  file:
+    name: ./logs/my-log.log
+  level:
+    root: info
+    web: info
+  logback:
+    rollingpolicy:
+      max-file-size: 1MB
+      max-history: 10
+  pattern:
+    console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger : %msg%n'
+
