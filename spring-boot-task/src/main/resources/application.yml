@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/task
+    username: root
+    password: 123456
+
+  mail:
+    host: smtp.qq.com
+    username: 1908630172@qq.com
+    password: tlctfvduwtqwbcjd
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: never
+
+logging:
+  level:
+    com.baomidou.mybatisplus.samples: debug
+
+mybatis-plus:
+  ### configuration:
+  map-underscore-to-camel-case: true # 驼峰下划线转换
+  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/mapper/*.xmL
+  type-aliases-package: top.langxecho.springboot.task.entity
+
+  # 打印SQL语句,调试用
+
+
+
