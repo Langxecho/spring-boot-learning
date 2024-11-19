@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.langxecho.springboot.data.mapper.TeacherMapper">
+<mapper namespace="top.langxecho.springboot.websocket.data.mapper.TeacherMapper">
     <resultMap id="teacherMapper" type="Teacher">
         <id column="teacher_id" property="teacherId"/>
         <result column="teacher_name" property="teacherName"/>

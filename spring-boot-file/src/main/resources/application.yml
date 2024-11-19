@@ -1,0 +1,17 @@
+file:
+  upload-path: C:\\Users\\19086\\Downloads
+spring:
+  web:
+    resources:
+      static-locations: classpath:/static/,file:${file.upload-path}
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB # 单个⽂件上传⼤⼩
+      max-request-size: 100MB # ⼀次请求上传⽂件⼤⼩
+
+minio:
+  endPoint: http://103.40.14.10:20003
+  accessKey: langxecho
+  secretKey: 88888888
+
